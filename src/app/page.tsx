@@ -43,7 +43,7 @@ export default function Home() {
       </main>
 
       <footer className="bg-[#1e3a5f] text-blue-200 text-xs py-3 px-6 mt-4 flex items-center justify-between">
-        <span>© 2024 Badan Gizi Nasional - Dashboard Analitik MBG | Versi 2.4.1</span>
+        <span>© {new Date().getFullYear()} Badan Gizi Nasional - Dashboard Analitik MBG | Versi 2.4.1</span>
         <span className="text-[#d4a017]">Sistem Monitoring Nasional Program Makan Bergizi Gratis</span>
       </footer>
     </div>

@@ -1,6 +1,6 @@
 'use client';
 
-import { kpiData } from '@/data/dummy-data';
+import { kpiData, alerts } from '@/data/dummy-data';
 
 export default function KPICards() {
   const formatNumber = (num: number) => {
@@ -87,7 +87,7 @@ export default function KPICards() {
         </div>
         <div className="text-2xl font-bold text-red-600">{kpiData.activeAlerts}</div>
         <div className="text-gray-500 text-xs mt-1">Alert Aktif</div>
-        <div className="text-red-400 text-xs mt-0.5">5 Kritis · 19 Perhatian</div>
+        <div className="text-red-400 text-xs mt-0.5">{alerts.filter(a => a.severity === 'critical').length} Kritis · {alerts.filter(a => a.severity === 'warning').length} Perhatian</div>
       </div>
 
       <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-4 col-span-1">

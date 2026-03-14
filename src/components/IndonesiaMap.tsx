@@ -14,6 +14,17 @@ export default function IndonesiaMap() {
   const [tooltip, setTooltip] = useState<TooltipData | null>(null);
   const [selectedProvince, setSelectedProvince] = useState<Province | null>(null);
 
+  const provinceAbbreviations: Record<string, string> = {
+    'aceh': 'ACH', 'sumut': 'SUT', 'sumbar': 'SBR', 'riau': 'RIU', 'jambi': 'JMB',
+    'sumsel': 'SSL', 'bengkulu': 'BKL', 'lampung': 'LPG', 'kep-babel': 'BBL', 'kepri': 'KPR',
+    'dki': 'DKI', 'jabar': 'JBR', 'jateng': 'JTG', 'diy': 'DIY', 'jatim': 'JTM',
+    'banten': 'BTN', 'bali': 'BLI', 'ntb': 'NTB', 'ntt': 'NTT', 'kalbar': 'KBR',
+    'kalteng': 'KTG', 'kalsel': 'KSL', 'kaltim': 'KTM', 'kaltara': 'KTR', 'sulut': 'SUT',
+    'sulteng': 'STG', 'sulsel': 'SSL', 'sultra': 'STR', 'gorontalo': 'GTO', 'sulbar': 'SBR',
+    'maluku': 'MLK', 'malut': 'MLT', 'papbar': 'PPB', 'papua': 'PPU', 'papsel': 'PPS',
+    'papteng': 'PPT', 'papegunungan': 'PPG',
+  };
+
   const getStatusColor = (status: Province['status']) => {
     switch (status) {
       case 'good': return '#16a34a';
@@ -117,7 +128,7 @@ export default function IndonesiaMap() {
                     fontWeight="bold"
                     className="pointer-events-none"
                   >
-                    {province.name.split(' ').map((w: string) => w[0]).join('').substring(0, 3)}
+                    {provinceAbbreviations[province.id] ?? province.name.split(' ').map((w: string) => w[0]).join('').substring(0, 3)}
                   </text>
                 )}
               </g>
